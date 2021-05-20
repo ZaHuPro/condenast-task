@@ -1,5 +1,5 @@
-import log from './utils/logger';
-import serverInit from './providers/express';
+import log from "./utils/logger";
+import serverInit from "./providers/express";
 
-log.info('Server :: Booting...');
+log.info("Server :: Booting...");
 serverInit();

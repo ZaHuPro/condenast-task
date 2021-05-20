@@ -16,7 +16,7 @@ export const ignoreFavicon = (req, res, next) => {
 };
 
 export const notFoundHandler = (_express) => {
-  _express.use("*", (req, res) => {
+  _express.all("*", (req, res) => {
     // ip from client header or from express request object
     const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
     log.error(`Path '${req.originalUrl}' not found [IP: '${ip}']!`);

@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { successRespond } from '../utils/responder'
+import { getArticlesController } from "../controllers/articles";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    return successRespond(res, "Got Msg", 200, { test: "welcome "})
-});
+router.get("/articles", getArticlesController);
 
 export default router;

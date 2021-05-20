@@ -1,5 +1,17 @@
-import { createLogger, format, transports } from "winston";
+import morgan from "morgan";
+import { createLogger, format, transports, addColors } from "winston";
 const { combine, colorize, timestamp, errors, printf, splat, metadata } = format;
+
+const colors = {
+  error: 'red',
+  warn: 'yellow',
+  info: 'green',
+  http: 'magenta',
+  debug: 'cyan',
+}
+
+// Tell winston that you want to link the colors 
+addColors(colors)
 
 const customFormat = printf(({ level, message, timestamp, metadata }) => {
   let format = `${timestamp} | ${level} | ${message}`;
@@ -17,7 +29,7 @@ const customFormat = printf(({ level, message, timestamp, metadata }) => {
 });
 
 console.log("Loggings");
-export default createLogger({
+const Logger = createLogger({
   level: "debug",
   format: combine(
     // error stack trace in metadata
@@ -31,5 +43,17 @@ export default createLogger({
     // print with color in console
     colorize({ all: true })
   ),
-  transports: [new transports.Console(), new transports.Http()],
+  transports: [new transports.Console()],
 });
+
+const stream = {
+  write: (message) => Logger.http(message),
+};
+
+// Build the morgan middleware
+export const morganMiddleware = morgan(
+  ":method :url :status :res[content-length] - :response-time ms",
+  { stream }
+);
+
+export default Logger

@@ -1,5 +1,5 @@
 import express from "express";
-import log from "../utils/logger";
+import log, { morganMiddleware } from "../utils/logger";
 import apiRouter from "../router/Api";
 import { PORT, API_PREFIX } from "./configs";
 import { errorHandler, notFoundHandler, ignoreFavicon } from "../utils/exception";
@@ -12,6 +12,8 @@ export default () => {
   // Enables the request body parser
   app.use(express.json()); // for parsing application/json
   app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+  
+  app.use(morganMiddleware)
 
   log.info("Routes :: Mounting API Routes...");
   app.use(`/${API_PREFIX}`, apiRouter);
