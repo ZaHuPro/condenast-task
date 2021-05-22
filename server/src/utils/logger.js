@@ -29,7 +29,6 @@ const customFormat = printf(({ level, message, timestamp, metadata }) => {
   return format;
 });
 
-console.log("Loggings");
 const Logger = createLogger({
   level: "debug",
   format: combine(

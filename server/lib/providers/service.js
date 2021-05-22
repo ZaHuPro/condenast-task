@@ -29,8 +29,10 @@ var newsOfTopHeadlines = /*#__PURE__*/function () {
             _context.prev = 0;
             _context.next = 3;
             return newsAPI.v2.topHeadlines({
-              language: 'en',
-              country: 'gb'
+              language: "en",
+              country: "gb",
+              pageSize: pageSize,
+              page: page
             });
 
           case 3:
@@ -74,7 +76,7 @@ var newsOfEverything = /*#__PURE__*/function () {
             _context2.next = 3;
             return newsAPI.v2.everything({
               q: query,
-              language: 'en',
+              language: "en",
               pageSize: pageSize,
               page: page
             });

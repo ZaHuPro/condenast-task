@@ -19,12 +19,12 @@ var combine = _winston.format.combine,
     splat = _winston.format.splat,
     metadata = _winston.format.metadata;
 var colors = {
-  error: 'red',
-  warn: 'yellow',
-  info: 'green',
-  http: 'magenta',
-  debug: 'cyan'
-}; // Tell winston that you want to link the colors 
+  error: "red",
+  warn: "yellow",
+  info: "green",
+  http: "magenta",
+  debug: "cyan"
+}; // Tell winston that you want to link the colors
 
 (0, _winston.addColors)(colors);
 var customFormat = printf(function (_ref) {
@@ -44,7 +44,6 @@ var customFormat = printf(function (_ref) {
 
   return format;
 });
-console.log("Loggings");
 var Logger = (0, _winston.createLogger)({
   level: "debug",
   format: combine( // error stack trace in metadata

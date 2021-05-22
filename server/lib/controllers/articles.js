@@ -26,8 +26,8 @@ var getArticlesController = /*#__PURE__*/function () {
         switch (_context.prev = _context.next) {
           case 0:
             query = req.query.query;
-            pageSize = req.query.pageSize || 10;
-            page = req.query.page || 1;
+            pageSize = Number(req.query.pageSize || 12);
+            page = Number(req.query.page || 1);
 
             _logger["default"].debug("getArticlesController :: %o", {
               page: page,
@@ -64,7 +64,7 @@ var getArticlesController = /*#__PURE__*/function () {
           case 16:
             _articlesData = articlesData, status = _articlesData.status, articles = _articlesData.articles, totalResults = _articlesData.totalResults;
 
-            if (!(!status || status !== 'ok')) {
+            if (!(!status || status !== "ok")) {
               _context.next = 19;
               break;
             }

@@ -14,7 +14,7 @@ export default function NavBar({ setQueryInput, handleSearch, loading }) {
         <input
           className="form-control"
           onChange={(e) => setQueryInput(e.target.value)}
-          placeholder="search keyword separated with comma"
+          placeholder="keywords or phrases separated by comma to be searched"
           onKeyDown={(e) => keyPressKeyPush(e)}
         />
         <button

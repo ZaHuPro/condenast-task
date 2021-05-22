@@ -11,6 +11,8 @@ exports["default"] = void 0;
 
 var _express = _interopRequireDefault(require("express"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _logger = _interopRequireWildcard(require("../utils/logger"));
 
 var _Api = _interopRequireDefault(require("../router/Api"));
@@ -28,8 +30,9 @@ var _default = function _default() {
 
   var app = (0, _express["default"])();
 
-  _logger["default"].info("Middleware :: Booting the middleware..."); // Enables the request body parser
+  _logger["default"].info("Middleware :: Booting the middleware...");
 
+  app.use((0, _cors["default"])()); // Enables the request body parser
 
   app.use(_express["default"].json()); // for parsing application/json
 
