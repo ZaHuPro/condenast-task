@@ -1,12 +1,12 @@
-const doAPICall = (page = 1, query = undefined) => {
-  let url = `http://localhost:5000/api/articles?page=${page}`;
-
+const getDataFromAPI = (page = 1, query = undefined) => {
+  let url = `${process.env.REACT_APP_API_URL}/api/articles?page=${page}`;
   if (query && query !== "") {
     const formQuery = query
-      .split(" ")
+      .split(",")
       .filter((e) => e !== "")
+      .map((e) => `'${e}'`)
       .join(" OR ");
-    url = `${url}&quesry=${escape(formQuery)}`;
+    url = `${url}&query=${escape(formQuery)}`;
   }
 
   return fetch(url, {
@@ -20,4 +20,4 @@ const doAPICall = (page = 1, query = undefined) => {
     });
 };
 
-export default doAPICall;
+export default getDataFromAPI;

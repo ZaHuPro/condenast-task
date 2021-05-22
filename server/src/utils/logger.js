@@ -1,17 +1,18 @@
 import morgan from "morgan";
 import { createLogger, format, transports, addColors } from "winston";
-const { combine, colorize, timestamp, errors, printf, splat, metadata } = format;
+const { combine, colorize, timestamp, errors, printf, splat, metadata } =
+  format;
 
 const colors = {
-  error: 'red',
-  warn: 'yellow',
-  info: 'green',
-  http: 'magenta',
-  debug: 'cyan',
-}
+  error: "red",
+  warn: "yellow",
+  info: "green",
+  http: "magenta",
+  debug: "cyan",
+};
 
-// Tell winston that you want to link the colors 
-addColors(colors)
+// Tell winston that you want to link the colors
+addColors(colors);
 
 const customFormat = printf(({ level, message, timestamp, metadata }) => {
   let format = `${timestamp} | ${level} | ${message}`;
@@ -56,4 +57,4 @@ export const morganMiddleware = morgan(
   { stream }
 );
 
-export default Logger
+export default Logger;

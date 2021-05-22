@@ -1,20 +1,17 @@
 import React from "react";
-const noImg = 'https://www.incimages.com/uploaded_files/image/1920x1080/getty_525041723_970647970450098_70024.jpg'
+import { noImg } from "../utils/contacts";
 
-export default function Card({ article }) {
-
+export default function Card({ article, handleModalShow }) {
   return (
-    <div className="card">
+    <div className="card" onClick={() => handleModalShow(article)}>
       <img
         src={article.urlToImage ? article.urlToImage : noImg}
         className="card-img-top"
-        alt="..."
+        alt={article.title}
       />
       <div className="card-body">
         <h5 className="card-title">{article.title}</h5>
-        <p className="card-text">
-          {article.description}
-        </p>
+        <p className="card-text">{article.description}</p>
       </div>
     </div>
   );

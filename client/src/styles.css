@@ -20,8 +20,13 @@ navbar {
   color: #000;
 }
 
-.navbar input {
-  width: 50%;
+.search-group {
+  display: flex;
+  width: 70%;
+}
+
+.search-group input {
+  margin: 0 10px;
 }
 
 .content-wrapper {
@@ -59,31 +64,66 @@ navbar {
   text-align: center;
 }
 
-.content-heading h1 {
+.modal {
+  justify-content: center;
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-header h1 {
   margin: 15px 0;
   font-size: 35px;
   font-weight: 700;
   line-height: 1.24;
   letter-spacing: -0.005em;
+  margin-right: 10px;
 }
-.content-heading p {
-  margin-bottom: 15px;
-  margin-top: -3px;
-  font-size: 17px;
-  color: #777;
+
+.modal-dialog {
+  max-width: 80%;
 }
+
 .featured {
   width: 100%;
   max-height: 500px;
 }
 .content-text {
+  color: #000;
   margin: 20px 0px;
 }
 
-.author {
+.light {
   color: #777;
 }
-.source {
+.highlight {
   color: #0099ff;
   cursor: pointer;
+}
+
+.show {
+  display: flex;
+  z-index: 1060;
+}
+
+.hide {
+  display: none;
+  z-index: -100;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #efefef;
+  color: #000;
+  border-radius: 50%;
+  padding: 0 7px;
+}
+
+.loader {
+  text-align: center;
+  font-size: 23px;
+  font-variant: all-petite-caps;
+  letter-spacing: 20px;
+  font-weight: 600;
+  background-color: aliceblue;
 }
