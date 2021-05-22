@@ -4,8 +4,8 @@ import { newsOfEverything, newsOfTopHeadlines } from "../providers/service";
 
 export const getArticlesController = async (req, res) => {
   const { query } = req.query;
-  const pageSize = req.query.pageSize || 10;
-  const page = req.query.page || 1;
+  const pageSize = Number(req.query.pageSize || 12);
+  const page = Number(req.query.page || 1);
   log.debug("getArticlesController :: %o", { page, pageSize, query })
   let articlesData = {};
   if (query) {

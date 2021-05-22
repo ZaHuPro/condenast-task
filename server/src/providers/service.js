@@ -8,7 +8,9 @@ export const newsOfTopHeadlines = async (page, pageSize) => {
   try {
     const response = await newsAPI.v2.topHeadlines({
       language: 'en',
-      country: 'gb'
+      country: 'gb',
+      pageSize,
+      page
     })
     return response;
   } catch (err) {
